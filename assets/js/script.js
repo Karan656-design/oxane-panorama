@@ -1,3 +1,4 @@
+//<---------------------------- Karan --------------------------------->
 const detailsData = [
   {
     id: "detailsZero",
@@ -144,3 +145,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// <------------------------ AKANKSHA ------------------------------->

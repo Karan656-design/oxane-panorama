@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #71ffc5;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #71ffc5;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <g>
+    <circle class="cls-1" cx="18.96" cy="34.82" r="1.25"/>
+    <circle class="cls-1" cx="18.96" cy="47.87" r="1.25"/>
+    <circle class="cls-1" cx="18.96" cy="60.93" r="1.25"/>
+    <circle class="cls-1" cx="18.96" cy="73.98" r="1.25"/>
+    <circle class="cls-1" cx="29.92" cy="34.82" r="1.25"/>
+    <circle class="cls-1" cx="29.92" cy="47.87" r="1.25"/>
+    <circle class="cls-1" cx="29.92" cy="60.93" r="1.25"/>
+    <circle class="cls-1" cx="29.92" cy="73.98" r="1.25"/>
+    <circle class="cls-1" cx="40.88" cy="34.82" r="1.25"/>
+    <circle class="cls-1" cx="40.88" cy="47.87" r="1.25"/>
+    <circle class="cls-1" cx="40.88" cy="60.93" r="1.25"/>
+    <circle class="cls-1" cx="40.88" cy="73.98" r="1.25"/>
+    <circle class="cls-1" cx="51.84" cy="34.82" r="1.25"/>
+    <circle class="cls-1" cx="51.84" cy="47.87" r="1.25"/>
+    <circle class="cls-1" cx="51.84" cy="60.93" r="1.25"/>
+    <circle class="cls-1" cx="51.84" cy="73.98" r="1.25"/>
+    <circle class="cls-1" cx="62.8" cy="34.82" r="1.25"/>
+    <circle class="cls-1" cx="62.8" cy="47.87" r="1.25"/>
+    <circle class="cls-1" cx="62.8" cy="60.93" r="1.25"/>
+    <circle class="cls-1" cx="62.8" cy="73.98" r="1.25"/>
+  </g>
+  <path class="cls-2" d="M9.03,22.93h65.27M76.09,81.16V8.74c0-2.88-2.34-5.22-5.22-5.22H13.27c-2.88,0-5.22,2.34-5.22,5.22v72.42c0,2.88,2.34,5.22,5.22,5.22h57.6c2.88,0,5.22-2.34,5.22-5.22Z"/>
+</svg>

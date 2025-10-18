@@ -1,41 +1,42 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    list-style: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
 }
 
-:root{
-    --primary-color: #0d6efd;
-    --secondary-color: #6c757d;
-    --success-color: #198754;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #0dcaf0;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
 
-    --body-font: 'Poppins', sans-serif;
-    --heading-font: 'Roboto', sans-serif;
+  --body-font: "Poppins", sans-serif;
+  --heading-font: "Roboto", sans-serif;
 
-    --bg-color: #f4f4f4;
-    --text-color: #333;
+  --bg-color: #f6fbfa;
+  --text-color: #333;
 
-    --bg-teal-green: #4adcb7;
-    --text-teal-green: #4adcb7;
+  --bg-teal-green: #4adcb7;
+  --text-teal-green: #4adcb7;
 
-    --bg-dark-blue: #030739;
-    --text-dark-blue: #030739;
+  --bg-dark-blue: #030739;
+  --text-dark-blue: #030739;
 
-    --bg-indigo: #0b115d;
-    --text-indigo: #0b115d;
+  --bg-indigo: #0b115d;
+  --text-indigo: #0b115d;
 
-    --bg-light-blue: #204eba;
-    --text-light-blue: #204eba;
+  --bg-light-blue: #204eba;
+  --text-light-blue: #204eba;
 }
+<<<<<<< HEAD
 
 #container1{
     background-color:var(--bg-indigo) ;
@@ -66,3 +67,41 @@
     justify-content: flex-start;
     padding: 1rem 0;
 }
+=======
+/* .mainContainer h2{
+    padding-top: 5px;
+    padding-bottom: 3px;
+} */
+
+.bg-teal-green {
+  background-color: var(--bg-teal-green);
+}
+.bg-dark-blue {
+  background-color: var(--bg-dark-blue);
+}
+.bg-indigo {
+  background-color: var(--bg-indigo);
+}
+.bg-light-blue {
+  background-color: var(--bg-light-blue);
+}
+.text-teal-green {
+  color: var(--text-teal-green);
+}
+.text-dark-blue {
+  color: var(--text-dark-blue);
+}
+.text-indigo {
+  color: var(--text-indigo);
+}
+.text-light-blue {
+  color: var(--text-light-blue);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+}
+>>>>>>> 6ae113c3852550ac91634011ff6cb7287b6dbb22

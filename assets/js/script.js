@@ -1,0 +1,146 @@
+const detailsData = [
+  {
+    id: "detailsZero",
+    class: "details details-photoZero",
+    h2: "Oxane Panorama Suite of Solutions",
+    p: "Oxane Panorama’s modular architecture makes it a versatile private credit software platform that adapts to your investment process.",
+    link: null,
+  },
+  {
+    id: "detailsOne",
+    class: "details details-photoOne",
+    h2: "Portfolio Management",
+    p: "Comprehensive data management, risk monitoring, reporting, and analytics to streamline portfolio management for all private credit investments on one single solution.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/portfolio-management",
+      text: "Learn more",
+    },
+  },
+  {
+    id: "detailsTwo",
+    class: "details details-photoTwo",
+    h2: "Leverage Management",
+    p: "Comprehensive capabilities for capital markets, finance, and treasury teams to digitally manage all aspects of leverage and fund finance—bringing both borrowers and lenders onto one private credit technology platform.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/leverage-facility-management",
+      text: "Learn more",
+    },
+  },
+  {
+    id: "detailsThree",
+    class: "details details-photoThree",
+    h2: "Enterprise Data Management",
+    p: "Ingest, consolidate, and validate unstructured data at scale. Break data silos, connect upstream and downstream, and build a single source of truth for all your teams.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/enterprise-data-management",
+      text: "Learn more",
+    },
+  },
+  {
+    id: "detailsFour",
+    class: "details",
+    h2: "Servicing",
+    p: "Digital-first servicing and agency support including facility agent, security agent, verification agent, master servicing, and backup servicing.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/servicing",
+      text: "Learn more",
+    },
+  },
+  {
+    id: "detailsFive",
+    class: "details",
+    h2: "Valuations",
+    p: "Add rigor and transparency to valuations of corporate loans, granular loan portfolios, risk transfer trades, and other illiquid or hard-to-value assets.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/valuations",
+      text: "Learn more",
+    },
+  },
+  {
+    id: "detailsSix",
+    class: "details",
+    h2: "Deal Pipeline Management",
+    p: "Stay on top of your deal flow, get clear visibility into your pipeline, and centrally monitor and track progress on all your private credit deals.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/pipeline-management",
+      text: "Learn more",
+    },
+  },
+  {
+    id: "detailsSeven",
+    class: "details",
+    h2: "AI for Private Credit",
+    p: "Leverage AI-powered capabilities and unlock greater productivity, higher accuracy, and deeper insights across private credit portfolios.",
+    link: {
+      href: "/private-credit-software/oxane-panorama/AI",
+      text: "Learn more",
+    },
+  },
+];
+
+function createDetailsHTML(item) {
+  return `
+                            <div id="${item.id}" class="${item.class}">
+                                <p class="small">Grow with Confidence</p>
+                                <h2>${item.h2}</h2>
+                                <p>${item.p}</p>
+                                ${
+                                  item.link
+                                    ? `
+                                    <div class="btn-group">
+                                        <a href="${item.link.href}" target="_blank" class="button button__blue">${item.link.text}</a>
+                                    </div>
+                                `
+                                    : ""
+                                }
+                            </div>
+                        `;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const wrapper = document.getElementById("detailsWrapper");
+  wrapper.innerHTML = detailsData.map(createDetailsHTML).join("");
+});
+
+gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth >= 768) {
+    // Set initial states
+    gsap.set(".photo:not(:first-child)", { autoAlpha: 0, scale: 0.9 });
+    gsap.set(".details:not(:first-child)", { autoAlpha: 0 });
+
+    // Create ScrollTrigger
+    ScrollTrigger.create({
+      trigger: ".gallery",
+      start: "top top",
+      end: "bottom bottom",
+      pin: ".right",
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const totalItems = gsap.utils.toArray(".photo").length;
+        const currentIndex = Math.min(
+          Math.floor(progress * totalItems),
+          totalItems - 1
+        );
+
+        // Synchronize Photos
+        gsap.utils.toArray(".photo").forEach((photo, index) => {
+          gsap.to(photo, {
+            autoAlpha: index === currentIndex ? 1 : 0,
+            scale: index === currentIndex ? 1 : 0.9,
+            duration: 0.5,
+          });
+        });
+
+        // Synchronize Details
+        gsap.utils.toArray(".details").forEach((details, index) => {
+          gsap.to(details, {
+            autoAlpha: index === currentIndex ? 1 : 0,
+            duration: 0.5,
+          });
+        });
+      },
+    });
+  }
+});

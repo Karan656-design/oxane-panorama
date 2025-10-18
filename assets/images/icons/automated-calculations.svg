@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 90 90">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: url(#linear-gradient-3);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 6px;
+      }
+
+      .cls-1, .cls-3, .cls-4, .cls-5 {
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke: url(#linear-gradient-5);
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke: url(#linear-gradient-4);
+      }
+
+      .cls-4 {
+        stroke: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        stroke: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="3.15" y1="26.59" x2="33.06" y2="26.59" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b3edb"/>
+      <stop offset="1" stop-color="#8efecc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="52.22" y1="16.15" x2="87.86" y2="16.15" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="20.89" y1="71.33" x2="87.86" y2="71.33" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" y1="79.06" x2="9.15" y2="79.06" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="45.65" y1="82.12" x2="47.83" y2="8" xlink:href="#linear-gradient"/>
+  </defs>
+  <g>
+    <polyline class="cls-4" points="30.06 3.03 6.15 3.03 6.15 50.14"/>
+    <polyline class="cls-5" points="84.86 29.26 84.86 3.03 55.22 3.03"/>
+    <polyline class="cls-1" points="23.89 86.78 84.86 86.78 84.86 55.89"/>
+    <line class="cls-3" x1="6.15" y1="71.35" x2="6.15" y2="86.78"/>
+  </g>
+  <path class="cls-2" d="M72.14,78.4H21.35c-1.79,0-3.24-1.45-3.24-3.24V14.96c0-1.79,1.45-3.24,3.24-3.24h50.8c1.79,0,3.24,1.45,3.24,3.24v60.21c0,1.79-1.45,3.24-3.24,3.24ZM67.22,27.99v-5.8c0-1.93-1.57-3.5-3.5-3.5H28.67c-1.93,0-3.5,1.57-3.5,3.5v5.8c0,1.93,1.57,3.5,3.5,3.5h35.06c1.93,0,3.5-1.57,3.5-3.5ZM63.77,67.39v-10.25c0-2.02-1.63-3.65-3.65-3.65h-12.04c-2.02,0-3.65,1.63-3.65,3.65v10.25c0,2.02,1.63,3.65,3.65,3.65h12.04c2.02,0,3.65-1.63,3.65-3.65ZM26.42,44.15h7.18M26.42,52.69h7.18M26.42,61.22h7.18M26.42,69.76h7.18M42.44,44.15h20.7"/>
+</svg>

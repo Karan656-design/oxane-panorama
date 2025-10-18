@@ -36,7 +36,33 @@
     --bg-light-blue: #204eba;
     --text-light-blue: #204eba;
 }
-/* .mainContainer h2{
-    padding-top: 5px;
-    padding-bottom: 3px;
-} */
+
+#container1{
+    background-color:var(--bg-indigo) ;
+        border-radius: 10px 0 0 10px;
+    height: 670px;
+    margin: 0 auto;
+    min-height: 670px;
+    padding: 60px 70px;
+    /* width: 100%; */
+}
+
+#innerContainer1:first-child{
+    /* border-top: 2px solid ; */
+    /* border-radius: 2px; */
+    /* padding: 10px; */
+    margin-bottom: 0.5rem;
+    width: 100%;
+    max-height:2px;
+    height: 2px;
+
+}
+
+#innerContainer1 .content{
+     border-top: 2px solid ;
+    border-radius: 2px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 0;
+}

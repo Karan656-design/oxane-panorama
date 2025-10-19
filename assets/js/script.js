@@ -147,3 +147,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // <------------------------ AKANKSHA ------------------------------->
+
+
+
+const dynamicArr=['Everything in one place','Unlock scalability and control','Proactively manage risk','Improve rigor and transparency','Minimize operational risk','Empower your team'];
+const dynamicData=document.getElementById('container2');
+let fixedData ;
+dynamicArr.forEach((item)=>{
+ const progressDiv = document.createElement("div");
+  progressDiv.className = 'progressBar';
+  dynamicData.appendChild(progressDiv);
+
+  // Then: add the dynamic text content
+  const contentDiv = document.createElement("div");
+  contentDiv.className = 'dynamicContent';
+  contentDiv.textContent = item;
+  dynamicData.appendChild(contentDiv);
+
+})

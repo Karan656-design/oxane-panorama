@@ -58,11 +58,20 @@
 
 }
 
-#innerContainer1 .content{
-     border-top: 2px solid ;
-    border-radius: 2px;
+#innerContainer1 .dynamicContent{
+     /* border-top: 2px solid ; */
+    /* border-radius: 2px; */
+    color: #f0f0f0;
     align-items: center;
     display: flex;
     justify-content: flex-start;
     padding: 1rem 0;
+}
+
+#innerContainer1 .progressBar{
+     background-color: #f0f0f0;
+    border-radius: 2px;
+    height: 2px;
+    margin-bottom: .5rem;
+    max-height: 2px;
 }

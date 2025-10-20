@@ -81,7 +81,7 @@ const detailsData = [
 function createDetailsHTML(item) {
   return `
                             <div id="${item.id}" class="${item.class}">
-                                <p class="small">Grow with Confidence</p>
+                                <p class="small text-teal-green">Grow with Confidence</p>
                                 <h2>${item.h2}</h2>
                                 <p>${item.p}</p>
                                 ${
@@ -100,47 +100,55 @@ function createDetailsHTML(item) {
 document.addEventListener("DOMContentLoaded", function () {
   const wrapper = document.getElementById("detailsWrapper");
   wrapper.innerHTML = detailsData.map(createDetailsHTML).join("");
-});
 
-gsap.registerPlugin(ScrollTrigger);
-document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
   if (window.innerWidth >= 768) {
-    // Set initial states
-    gsap.set(".photo:not(:first-child)", { autoAlpha: 0, scale: 0.9 });
-    gsap.set(".details:not(:first-child)", { autoAlpha: 0 });
+    // Ensure DOM is updated before running GSAP logic
+    debugger;
+    setTimeout(() => {
+      // Set initial states
+      gsap.set(".photo:not(:first-child)", { autoAlpha: 0, scale: 0.9 });
+      gsap.set(".details:not(:first-child)", { autoAlpha: 0 });
 
-    // Create ScrollTrigger
-    ScrollTrigger.create({
-      trigger: ".gallery",
-      start: "top top",
-      end: "bottom bottom",
-      pin: ".right",
-      scrub: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const totalItems = gsap.utils.toArray(".photo").length;
-        const currentIndex = Math.min(
-          Math.floor(progress * totalItems),
-          totalItems - 1
-        );
+      // Cache arrays for efficiency
+      const photos = gsap.utils.toArray(".photo");
+      const detailsArr = gsap.utils.toArray(".details");
 
-        // Synchronize Photos
-        gsap.utils.toArray(".photo").forEach((photo, index) => {
-          gsap.to(photo, {
-            autoAlpha: index === currentIndex ? 1 : 0,
-            scale: index === currentIndex ? 1 : 0.9,
-            duration: 0.5,
+      // Create ScrollTrigger
+      ScrollTrigger.create({
+        trigger: ".gallery",
+        start: "top top",
+        end: "bottom bottom",
+        pin: ".right",
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          console.log("Scroll Progress:", progress);
+
+          const totalItems = photos.length;
+          const currentIndex = Math.min(
+            Math.floor(progress * totalItems),
+            totalItems - 1
+          );
+
+          // Synchronize Photos
+          photos.forEach((photo, index) => {
+            gsap.to(photo, {
+              autoAlpha: index === currentIndex ? 1 : 0,
+              scale: index === currentIndex ? 1 : 0.9,
+              duration: 0.5,
+            });
           });
-        });
 
-        // Synchronize Details
-        gsap.utils.toArray(".details").forEach((details, index) => {
-          gsap.to(details, {
-            autoAlpha: index === currentIndex ? 1 : 0,
-            duration: 0.5,
+          // Synchronize Details
+          detailsArr.forEach((details, index) => {
+            gsap.to(details, {
+              autoAlpha: index === currentIndex ? 1 : 0,
+              duration: 0.5,
+            });
           });
-        });
-      },
-    });
+        },
+      });
+    }, 0);
   }
 });

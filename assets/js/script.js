@@ -1,3 +1,4 @@
+//<---------------------------- Karan --------------------------------->
 const detailsData = [
   {
     id: "detailsZero",
@@ -152,3 +153,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 0);
   }
 });
+
+// <------------------------ AKANKSHA ------------------------------->
+
+const dynamicArr = [
+  "Everything in one place",
+  "Unlock scalability and control",
+  "Proactively manage risk",
+  "Improve rigor and transparency",
+  "Minimize operational risk",
+  "Empower your team",
+];
+const imageUrl = [""];
+const dynamicData = document.getElementById("leftContent2");
+const dynamicDisplay = document.getElementById("innerContainerR");
+// dynamicDisplay.className = "noDisplay";
+
+let fixedData;
+dynamicArr.forEach((item) => {
+
+  //<------------ left side conetent ---------------->
+  const progressDiv = document.createElement("div");
+  progressDiv.className = "progressBar";
+  dynamicData.appendChild(progressDiv);
+  const contentDiv = document.createElement("div");
+  contentDiv.className = "dynamicContent";
+  contentDiv.textContent = item;
+  dynamicData.appendChild(contentDiv);
+
+  //<------------ right side display ---------------->
+  contentDiv.addEventListener("click", () => {
+    //  dynamicDisplay.className = "display";
+
+  // Select the heading element correctly
+  const heading = document.querySelector('.dynamicHeading');
+  heading.textContent = item;
+
+  // Select the image display container
+  const imageDisplay = document.getElementById('imageDisplay');
+  imageDisplay.innerHTML = `<img src="${imageUrls[index]}" alt="${item}" style="max-width:100%; height:auto;">`;
+
+  });
+});
+
+
+

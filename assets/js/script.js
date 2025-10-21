@@ -156,37 +156,91 @@ const dynamicArr = [
   "Minimize operational risk",
   "Empower your team",
 ];
+const img = document.createElement('img');
+const dynamicArrO=[
+  {
+    h2:'Everything in one place',
+    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
+     link: {
+      href: "/assets/images/Product/oxane-panorama/illustrations/x01.svg",
+      text: "Everything in one place",
+    },
+    // 'img':'D:\workspace-akanksha'
+  },
+ {
+    h2:'Unlock scalability and control',
+    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
+    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+  },
+  {
+    h2:'Proactively manage risk',
+    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
+    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+  },
+  {
+    h2:'Improve rigor and transparency',
+    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
+    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+  },
+  {
+    h2:'Minimize operational risk',
+    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
+    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+  },
+  {
+    h2:'Empower your team',
+    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
+    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+  },
+]
+// console.log(dynamicArrO[img]);
 const imageUrl = [""];
 const dynamicData = document.getElementById("leftContent2");
 const dynamicDisplay = document.getElementById("innerContainerR");
 // dynamicDisplay.className = "noDisplay";
 
-let fixedData;
-dynamicArr.forEach((item) => {
 
-  //<------------ left side conetent ---------------->
+
+// Function to create left side content
+function leftSide(item) {
   const progressDiv = document.createElement("div");
   progressDiv.className = "progressBar";
   dynamicData.appendChild(progressDiv);
+
   const contentDiv = document.createElement("div");
   contentDiv.className = "dynamicContent";
   contentDiv.textContent = item;
   dynamicData.appendChild(contentDiv);
+
+  return contentDiv; // Return for use in event listener
+}
+
+
+
+
+
+
+dynamicArr.forEach((item) => {
+
+  //<------------ left side conetent ---------------->
+   const contentDiv = leftSide(item);
 
   //<------------ right side display ---------------->
   contentDiv.addEventListener("click", () => {
     //  dynamicDisplay.className = "display";
 
   // Select the heading element correctly
-  const heading = document.querySelector('.dynamicHeading');
-  heading.textContent = item;
+  const headingDynamic = document.querySelector('.dynamicHeading');
+  headingDynamic.textContent = item;
 
   // Select the image display container
   const imageDisplay = document.getElementById('imageDisplay');
-  imageDisplay.innerHTML = `<img src="${imageUrls[index]}" alt="${item}" style="max-width:100%; height:auto;">`;
+  imageDisplay.innerHTML = `<img src="${dynamicArrO[img]}" alt="${item}" style="max-width:100%; height:auto;">`;
 
   });
 });
+
+
 
 
 

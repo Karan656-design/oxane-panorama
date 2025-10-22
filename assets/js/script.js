@@ -1,4 +1,20 @@
 //<---------------------------- Karan --------------------------------->
+const navbarElement = document.getElementById("navbar");
+
+window.addEventListener("scroll", function () {
+  const logoImg = navbarElement.querySelector(".logo img");
+  const cntctBtn = navbarElement.querySelector(".cntct-btn button:hover");
+  if (window.scrollY > 100) {
+    navbarElement.classList.add("navbar-scrolled");
+    logoImg.style.filter = "none";
+    cntctBtn.style.color = "var(--text-dark-blue)";
+  } else {
+    navbarElement.classList.remove("navbar-scrolled");
+    logoImg.style.filter = "brightness(0) invert(1)";
+    cntctBtn.style.color = "white";
+  }
+});
+
 const detailsData = [
   {
     id: "detailsZero",
@@ -105,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
   if (window.innerWidth >= 768) {
     // Ensure DOM is updated before running GSAP logic
-    debugger;
     setTimeout(() => {
       // Set initial states
       gsap.set(".photo:not(:first-child)", { autoAlpha: 0, scale: 0.9 });
@@ -126,11 +141,27 @@ document.addEventListener("DOMContentLoaded", function () {
           const progress = self.progress;
           console.log("Scroll Progress:", progress);
 
+          // Calculate index, but clamp to last index at the end
           const totalItems = photos.length;
-          const currentIndex = Math.min(
-            Math.floor(progress * totalItems),
-            totalItems - 1
-          );
+          console.log("Total Items:", totalItems);
+
+          let currentIndex = Math.floor(progress * totalItems);
+          console.log("Calculated Index:", currentIndex);
+
+          if (currentIndex === totalItems || progress === 1) {
+            currentIndex = totalItems - 1;
+            // Set .right height to fit-content at the end
+            const rightDiv = document.querySelector(".right");
+            if (rightDiv) {
+              rightDiv.style.height = "fit-content";
+            }
+          } else {
+            // Reset .right height to 100% during scroll
+            const rightDiv = document.querySelector(".right");
+            if (rightDiv) {
+              rightDiv.style.height = "6605px";
+            }
+          }
 
           // Synchronize Photos
           photos.forEach((photo, index) => {
@@ -150,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         },
       });
-    }, 0);
+    }, 5);
   }
 });
 
@@ -164,50 +195,54 @@ const dynamicArr = [
   "Minimize operational risk",
   "Empower your team",
 ];
-const img = document.createElement('img');
-const dynamicArrO=[
+const img = document.createElement("img");
+const dynamicArrO = [
   {
-    h2:'Everything in one place',
-    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
-     link: {
+    h2: "Everything in one place",
+    description:
+      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    link: {
       href: "/assets/images/Product/oxane-panorama/illustrations/x01.svg",
       text: "Everything in one place",
     },
     // 'img':'D:\workspace-akanksha'
   },
- {
-    h2:'Unlock scalability and control',
-    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
-    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+  {
+    h2: "Unlock scalability and control",
+    description:
+      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
   },
   {
-    h2:'Proactively manage risk',
-    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
-    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+    h2: "Proactively manage risk",
+    description:
+      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
   },
   {
-    h2:'Improve rigor and transparency',
-    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
-    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+    h2: "Improve rigor and transparency",
+    description:
+      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
   },
   {
-    h2:'Minimize operational risk',
-    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
-    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+    h2: "Minimize operational risk",
+    description:
+      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
   },
   {
-    h2:'Empower your team',
-    description:'Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.',
-    'img':'D:\workspace-akanksha\assets\images\Product\oxane-panorama\illustrations\x01.svg'
+    h2: "Empower your team",
+    description:
+      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
   },
-]
+];
 // console.log(dynamicArrO[img]);
 const imageUrl = [""];
 const dynamicData = document.getElementById("leftContent2");
 const dynamicDisplay = document.getElementById("innerContainerR");
 // dynamicDisplay.className = "noDisplay";
-
-
 
 // Function to create left side content
 function leftSide(item) {
@@ -223,32 +258,20 @@ function leftSide(item) {
   return contentDiv; // Return for use in event listener
 }
 
-
-
-
-
-
 dynamicArr.forEach((item) => {
-
   //<------------ left side conetent ---------------->
-   const contentDiv = leftSide(item);
+  const contentDiv = leftSide(item);
 
   //<------------ right side display ---------------->
   contentDiv.addEventListener("click", () => {
     //  dynamicDisplay.className = "display";
 
-  // Select the heading element correctly
-  const headingDynamic = document.querySelector('.dynamicHeading');
-  headingDynamic.textContent = item;
+    // Select the heading element correctly
+    const headingDynamic = document.querySelector(".dynamicHeading");
+    headingDynamic.textContent = item;
 
-  // Select the image display container
-  const imageDisplay = document.getElementById('imageDisplay');
-  imageDisplay.innerHTML = `<img src="${dynamicArrO[img]}" alt="${item}" style="max-width:100%; height:auto;">`;
-
+    // Select the image display container
+    const imageDisplay = document.getElementById("imageDisplay");
+    imageDisplay.innerHTML = `<img src="${dynamicArrO[img]}" alt="${item}" style="max-width:100%; height:auto;">`;
   });
 });
-
-
-
-
-

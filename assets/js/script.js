@@ -187,22 +187,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // <------------------------ AKANKSHA ------------------------------->
 
-const dynamicArr = [
-  "Everything in one place",
-  "Unlock scalability and control",
-  "Proactively manage risk",
-  "Improve rigor and transparency",
-  "Minimize operational risk",
-  "Empower your team",
-];
-const img = document.createElement("img");
+// const img = document.createElement("img");
 const dynamicArrO = [
   {
     h2: "Everything in one place",
     description:
       "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
     link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/x01.svg",
+      href: "/assets/images/Product/oxane-panorama/illustrations/1.svg",
       text: "Everything in one place",
     },
     // 'img':'D:\workspace-akanksha'
@@ -210,68 +202,116 @@ const dynamicArrO = [
   {
     h2: "Unlock scalability and control",
     description:
-      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
-    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
+      "Accelerate your growth with confidence on an operational infrastructure that scales seamlessly with your portfolio while maintaining rigorous risk controls",
+    link: {
+      href: "/assets/images/Product/oxane-panorama/illustrations/2.svg",
+      text: "Unlock scalability and control",
+    },
   },
   {
     h2: "Proactively manage risk",
     description:
-      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
-    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
+      "Get complete visibility on relevant risk metrics at portfolio and transaction levels. Identify risk early so you can address it proactively.",
+    link: {
+      href: "/assets/images/Product/oxane-panorama/illustrations/4.svg",
+      text: "Proactively manage risk",
+    },
   },
   {
     h2: "Improve rigor and transparency",
     description:
-      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
-    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
+      "Improve efficiency, rigor, and transparency across all processes with a digital-first approach to valuations, servicing, and pipeline management.",
+    link: {
+      href: "/assets/images/Product/oxane-panorama/illustrations/5.svg",
+      text: "Improve rigor and transparency",
+    },
   },
   {
     h2: "Minimize operational risk",
     description:
-      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
-    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
+      "Replace disconnected systems and manual workflows with centralized data, reporting, and monitoring. Oxane Panorama provides a single source of truth, minimizing operational risk for all private credit strategies.",
+    link: {
+      href: "/assets/images/Product/oxane-panorama/illustrations/6.svg",
+      text: "Minimize operational risk",
+    },
   },
   {
     h2: "Empower your team",
     description:
-      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
-    img: "D:workspace-akankshaassetsimagesProductoxane-panoramaillustrations\x01.svg",
+      "Simplify, digitalize, and transform investment management processes so your team can focus on driving investment outcomes.",
+    link: {
+      href: "/assets/images/Product/oxane-panorama/illustrations/7.svg",
+      text: "Empower your team",
+    },
   },
 ];
-// console.log(dynamicArrO[img]);
-const imageUrl = [""];
+
 const dynamicData = document.getElementById("leftContent2");
 const dynamicDisplay = document.getElementById("innerContainerR");
-// dynamicDisplay.className = "noDisplay";
 
-// Function to create left side content
-function leftSide(item) {
-  const progressDiv = document.createElement("div");
+let loopInterval=null;
+let loopActive=true;
+
+
+function updateRightSide(item){
+
+  // heading display
+    const headingDynamic = document.querySelector(".dynamicHeading");
+    headingDynamic.textContent = item.h2;
+  
+  // paragraph display
+    const paraDynamic = document.querySelector(".description");
+    paraDynamic.textContent = item.description;
+
+  //image display
+    const imageDisplay = document.getElementById("imageDisplay");
+    imageDisplay.innerHTML = `<img src="${item.link.href}" alt="${item.h2}" style="max-width:100%; height:auto;">`;
+}
+
+
+function dynamicLoad(){
+
+dynamicArrO.forEach((item) => {
+  //<------------ left side conetent ---------------->
+const progressDiv = document.createElement("div");
   progressDiv.className = "progressBar";
   dynamicData.appendChild(progressDiv);
 
   const contentDiv = document.createElement("div");
   contentDiv.className = "dynamicContent";
-  contentDiv.textContent = item;
+  contentDiv.textContent = item.h2;
   dynamicData.appendChild(contentDiv);
-
-  return contentDiv; // Return for use in event listener
-}
-
-dynamicArr.forEach((item) => {
-  //<------------ left side conetent ---------------->
-  const contentDiv = leftSide(item);
 
   //<------------ right side display ---------------->
   contentDiv.addEventListener("click", () => {
-    //  dynamicDisplay.className = "display";
 
-    // Select the heading element correctly
-    const headingDynamic = document.querySelector(".dynamicHeading");
-    headingDynamic.textContent = item;
-
-    // Select the image display container
-    const imageDisplay = document.getElementById("imageDisplay");
-    imageDisplay.innerHTML = `<img src="${dynamicArrO[img]}" alt="${item}" style="max-width:100%; height:auto;">`;
+    // stops auto loop immediatly if active
+    if(loopActive){
+      clearInterval(loopInterval);
+      loopActive=false;
+    }
+    updateRightSide(item)
   });
 });
+
+// default diaplay
+updateRightSide(dynamicArrO[0]); 
+
+let index=1;
+
+setTimeout(()=>{
+loopInterval=setInterval(()=>{
+  updateRightSide(dynamicArrO[index]);
+  index++;
+  if(index===dynamicArrO.length){
+    clearInterval(interval);
+    loopActive=false;
+  }
+},6000)
+},2000);
+}
+window.addEventListener("load",dynamicLoad)
+
+// dynamicLoad();
+
+

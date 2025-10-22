@@ -156,15 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // <------------------------ AKANKSHA ------------------------------->
 
-const dynamicArr = [
-  "Everything in one place",
-  "Unlock scalability and control",
-  "Proactively manage risk",
-  "Improve rigor and transparency",
-  "Minimize operational risk",
-  "Empower your team",
-];
-const img = document.createElement("img");
+// const img = document.createElement("img");
 const dynamicArrO = [
   {
     h2: "Everything in one place",
@@ -222,45 +214,35 @@ const dynamicArrO = [
     },
   },
 ];
-// console.log(dynamicArrO[img]);
-const imageUrl = [""];
+
 const dynamicData = document.getElementById("leftContent2");
 const dynamicDisplay = document.getElementById("innerContainerR");
-// dynamicDisplay.className = "noDisplay";
 
-// Function to create left side content
-// function leftSide(item) {
-//   const progressDiv = document.createElement("div");
-//   progressDiv.className = "progressBar";
-//   dynamicData.appendChild(progressDiv);
+let loopInterval=null;
+let loopActive=true;
 
-//   const contentDiv = document.createElement("div");
-//   contentDiv.className = "dynamicContent";
-//   contentDiv.textContent = item;
-//   dynamicData.appendChild(contentDiv);
 
-//   return contentDiv; // Return for use in event listener
-// }
+function updateRightSide(item){
 
-// dynamicArr.forEach((item) => {
+  // heading display
+    const headingDynamic = document.querySelector(".dynamicHeading");
+    headingDynamic.textContent = item.h2;
+  
+  // paragraph display
+    const paraDynamic = document.querySelector(".description");
+    paraDynamic.textContent = item.description;
 
-//   //<------------ left side conetent ---------------->
-//    const contentDiv = leftSide(item);
+  //image display
+    const imageDisplay = document.getElementById("imageDisplay");
+    imageDisplay.innerHTML = `<img src="${item.link.href}" alt="${item.h2}" style="max-width:100%; height:auto;">`;
+}
 
-//   //<------------ right side display ---------------->
-//   contentDiv.addEventListener("click", () => {
-//   const headingDynamic = document.querySelector('.dynamicHeading');
-//   headingDynamic.textContent = item;
 
-//   // Select the image display container
-//   const imageDisplay = document.getElementById('imageDisplay');
-//   imageDisplay.innerHTML = `<img src="${dynamicArrO[img]}" alt="${item}" style="max-width:100%; height:auto;">`;
+function dynamicLoad(){
 
-//   });
-// });
-
-function leftSide(item) {
-  const progressDiv = document.createElement("div");
+dynamicArrO.forEach((item) => {
+  //<------------ left side conetent ---------------->
+const progressDiv = document.createElement("div");
   progressDiv.className = "progressBar";
   dynamicData.appendChild(progressDiv);
 
@@ -269,23 +251,36 @@ function leftSide(item) {
   contentDiv.textContent = item.h2;
   dynamicData.appendChild(contentDiv);
 
-  return contentDiv; // Return for use in event listener
-}
-
-dynamicArrO.forEach((item, index) => {
-  //<------------ left side conetent ---------------->
-  const contentDiv = leftSide(item);
-
   //<------------ right side display ---------------->
   contentDiv.addEventListener("click", () => {
-    const headingDynamic = document.querySelector(".dynamicHeading");
-    headingDynamic.textContent = item.h2;
 
-    const paraDynamic = document.querySelector(".description");
-    paraDynamic.textContent = item.description;
-
-    // Select the image display container
-    const imageDisplay = document.getElementById("imageDisplay");
-    imageDisplay.innerHTML = `<img src="${item.link.href}" alt="${item.h2}" style="max-width:100%; height:auto;">`;
+    // stops auto loop immediatly if active
+    if(loopActive){
+      clearInterval(loopInterval);
+      loopActive=false;
+    }
+    updateRightSide(item)
   });
 });
+
+// default diaplay
+updateRightSide(dynamicArrO[0]); 
+
+let index=1;
+
+setTimeout(()=>{
+loopInterval=setInterval(()=>{
+  updateRightSide(dynamicArrO[index]);
+  index++;
+  if(index===dynamicArrO.length){
+    clearInterval(interval);
+    loopActive=false;
+  }
+},6000)
+},2000);
+}
+window.addEventListener("load",dynamicLoad)
+
+// dynamicLoad();
+
+

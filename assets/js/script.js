@@ -3,15 +3,21 @@ const navbarElement = document.getElementById("navbar");
 
 window.addEventListener("scroll", function () {
   const logoImg = navbarElement.querySelector(".logo img");
-  const cntctBtn = navbarElement.querySelector(".cntct-btn button:hover");
+  const cntctBtn = navbarElement.querySelector(".cntct-btn button");
   if (window.scrollY > 100) {
     navbarElement.classList.add("navbar-scrolled");
-    logoImg.style.filter = "none";
-    cntctBtn.style.color = "var(--text-dark-blue)";
+    if (logoImg) logoImg.style.filter = "none";
+    if (cntctBtn) {
+      cntctBtn.style.color = "var(--text-dark-blue)";
+      cntctBtn.style.background = "#f6fbfa";
+    }
   } else {
     navbarElement.classList.remove("navbar-scrolled");
-    logoImg.style.filter = "brightness(0) invert(1)";
-    cntctBtn.style.color = "white";
+    if (logoImg) logoImg.style.filter = "brightness(0) invert(1)";
+    if (cntctBtn) {
+      cntctBtn.style.color = "white";
+      cntctBtn.style.background = "";
+    }
   }
 });
 

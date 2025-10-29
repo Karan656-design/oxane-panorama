@@ -3,15 +3,21 @@ const navbarElement = document.getElementById("navbar");
 
 window.addEventListener("scroll", function () {
   const logoImg = navbarElement.querySelector(".logo img");
-  const cntctBtn = navbarElement.querySelector(".cntct-btn button:hover");
+  const cntctBtn = navbarElement.querySelector(".cntct-btn button");
   if (window.scrollY > 100) {
     navbarElement.classList.add("navbar-scrolled");
-    logoImg.style.filter = "none";
-    cntctBtn.style.color = "var(--text-dark-blue)";
+    if (logoImg) logoImg.style.filter = "none";
+    if (cntctBtn) {
+      cntctBtn.style.color = "var(--text-dark-blue)";
+      cntctBtn.style.background = "#f6fbfa";
+    }
   } else {
     navbarElement.classList.remove("navbar-scrolled");
-    logoImg.style.filter = "brightness(0) invert(1)";
-    cntctBtn.style.color = "white";
+    if (logoImg) logoImg.style.filter = "brightness(0) invert(1)";
+    if (cntctBtn) {
+      cntctBtn.style.color = "white";
+      cntctBtn.style.background = "";
+    }
   }
 });
 
@@ -139,14 +145,11 @@ document.addEventListener("DOMContentLoaded", function () {
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
-          console.log("Scroll Progress:", progress);
 
           // Calculate index, but clamp to last index at the end
           const totalItems = photos.length;
-          console.log("Total Items:", totalItems);
 
           let currentIndex = Math.floor(progress * totalItems);
-          console.log("Calculated Index:", currentIndex);
 
           if (currentIndex === totalItems || progress === 1) {
             currentIndex = totalItems - 1;
@@ -249,69 +252,62 @@ const dynamicArrO = [
 const dynamicData = document.getElementById("leftContent2");
 const dynamicDisplay = document.getElementById("innerContainerR");
 
-let loopInterval=null;
-let loopActive=true;
+let loopInterval = null;
+let loopActive = true;
 
-
-function updateRightSide(item){
-
+function updateRightSide(item) {
   // heading display
-    const headingDynamic = document.querySelector(".dynamicHeading");
-    headingDynamic.textContent = item.h2;
-  
+  const headingDynamic = document.querySelector(".dynamicHeading");
+  headingDynamic.textContent = item.h2;
+
   // paragraph display
-    const paraDynamic = document.querySelector(".description");
-    paraDynamic.textContent = item.description;
+  const paraDynamic = document.querySelector(".description");
+  paraDynamic.textContent = item.description;
 
   //image display
-    const imageDisplay = document.getElementById("imageDisplay");
-    imageDisplay.innerHTML = `<img src="${item.link.href}" alt="${item.h2}" style="max-width:100%; height:auto;">`;
+  const imageDisplay = document.getElementById("imageDisplay");
+  imageDisplay.innerHTML = `<img src="${item.link.href}" alt="${item.h2}" style="max-width:100%; height:auto;">`;
 }
 
+function dynamicLoad() {
+  dynamicArrO.forEach((item) => {
+    //<------------ left side conetent ---------------->
+    const progressDiv = document.createElement("div");
+    progressDiv.className = "progressBar";
+    dynamicData.appendChild(progressDiv);
 
-function dynamicLoad(){
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "dynamicContent";
+    contentDiv.textContent = item.h2;
+    dynamicData.appendChild(contentDiv);
 
-dynamicArrO.forEach((item) => {
-  //<------------ left side conetent ---------------->
-const progressDiv = document.createElement("div");
-  progressDiv.className = "progressBar";
-  dynamicData.appendChild(progressDiv);
-
-  const contentDiv = document.createElement("div");
-  contentDiv.className = "dynamicContent";
-  contentDiv.textContent = item.h2;
-  dynamicData.appendChild(contentDiv);
-
-  //<------------ right side display ---------------->
-  contentDiv.addEventListener("click", () => {
-
-    // stops auto loop immediatly if active
-    if(loopActive){
-      clearInterval(loopInterval);
-      loopActive=false;
-    }
-    updateRightSide(item)
+    //<------------ right side display ---------------->
+    contentDiv.addEventListener("click", () => {
+      // stops auto loop immediatly if active
+      if (loopActive) {
+        clearInterval(loopInterval);
+        loopActive = false;
+      }
+      updateRightSide(item);
+    });
   });
-});
 
-// default diaplay
-updateRightSide(dynamicArrO[0]); 
+  // default diaplay
+  updateRightSide(dynamicArrO[0]);
 
-let index=1;
+  let index = 1;
 
-setTimeout(()=>{
-loopInterval=setInterval(()=>{
-  updateRightSide(dynamicArrO[index]);
-  index++;
-  if(index===dynamicArrO.length){
-    clearInterval(interval);
-    loopActive=false;
-  }
-},6000)
-},1000);
+  setTimeout(() => {
+    loopInterval = setInterval(() => {
+      updateRightSide(dynamicArrO[index]);
+      index++;
+      if (index === dynamicArrO.length) {
+        clearInterval(interval);
+        loopActive = false;
+      }
+    }, 6000);
+  }, 1000);
 }
-window.addEventListener("load",dynamicLoad)
+window.addEventListener("load", dynamicLoad);
 
 // dynamicLoad();
-
-

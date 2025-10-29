@@ -197,7 +197,7 @@ const dynamicArrO = [
       href: "/assets/images/Product/oxane-panorama/illustrations/1.svg",
       text: "Everything in one place",
     },
-    
+    // 'img':'D:\workspace-akanksha'
   },
   {
     h2: "Unlock scalability and control",

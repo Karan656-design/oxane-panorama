@@ -953,111 +953,114 @@ input[type="file"] {
 
 /* <!-- ----------------------------------------------------- Auto Load Section ----------------------------------------------------- --> */
 
-.autoLoadSec {
+.autoLoadSec{
   padding-bottom: 70px;
-  background-color: #f6fbfa;
+  background-color:#f6fbfa ;
 }
-/* #container1{
-    background-color:var(--bg-indigo) ;
+
+#innerContainerL{
+      background-color:var(--bg-indigo) ;
         border-radius: 10px 0 0 10px;
     height: 670px;
     margin: 0 auto;
     min-height: 670px;
     padding: 60px 70px;
     width: 100%;
-
-
-}
-   #innerContainerL{
     margin: 0 auto;
-  border-radius: 10px 0px 0px 10px;
-background: var(--theme-dark-blue);
-  padding: 60px 70px;
-  height: 670px;
-  width: 100%;
-  min-height: 670px;
-} 
-
-
-*/
-#innerContainerL {
-  background-color: var(--bg-indigo);
-  border-radius: 10px 0 0 10px;
-  height: 670px;
-  margin: 0 auto;
-  min-height: 670px;
-  padding: 60px 70px;
-  width: 100%;
-  margin: 0 auto;
+ 
 }
 
-/* #innerContainerL:first-child{
- 
-    margin-bottom: 0.5rem;
-    width: 100%;
-    max-height:2px;
-    height: 2px;
 
-} */
-
-.dynamicContent {
-  /* border-top: 2px solid ; */
-  /* border-radius: 2px; */
-  color: #f0f0f0;
-  align-items: center;
-  display: flex;
-  justify-content: flex-start;
-  padding: 1rem 0;
-  line-height: 26px;
-  cursor: pointer;
-
-  /* transition-property: all;
+ .dynamicContent{
+     /* border-top: 2px solid ; */
+    /* border-radius: 2px; */
+    color: #f0f0f0;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 0;
+     line-height: 26px;
+     cursor: pointer;
+       
+       /* transition-property: all;
        transition-duration: 7s;
        transition-timing-function: linear; */
 }
 
-.progressBar {
-  background-color: #f0f0f0;
-  border-radius: 2px;
-  height: 2px;
-  margin-bottom: 0.5rem;
-  max-height: 2px;
-  width: 100%;
 
-  /* transition-property: all;
+ .progressBar{
+background-color: #f0f0f0;
+    border-radius: 2px;
+    height: 2px;
+    margin-bottom: .5rem;
+    max-height: 2px;
+    width: 100%;
+  
+    /* transition-property: all;
   transition-duration: 7s;
     transition-timing-function: linear; */
 }
 
-#innerContainerR {
+@keyframes leftToRightFade {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+
+
+
+.progressBarAfter{
+  /* background-color: #9dd08d; */
+    border-radius: 2px;
+    height: 2px;
+    margin-bottom: .5rem;
+    max-height: 2px;
+    /* width: 100%; */
+      background: linear-gradient(to right, #ffcc00, #f0f0f0); /* Customize colors */
+  background-size: 200% 100%;
+  /* background-repeat: no-repeat; */
+  animation: leftToRightFade 7s linear forwards; /* Match interval duration */
+
+}
+
+#innerContainerR{
   align-items: center;
-  background-color: #fff;
-  border-radius: 0 10px 10px 0;
-  color: #333;
-  display: flex;
-  height: 670px;
-  justify-content: center;
-  margin: 0;
-  min-height: 670px;
-  padding: 60px 70px;
-  width: 100%;
+    background-color: #fff;
+    border-radius: 0 10px 10px 0;
+    color: #333;
+    display: flex;
+    height: 670px;
+    justify-content: center;
+    margin: 0;
+    min-height: 670px;
+    padding: 60px 70px;
+    width: 100%;
 }
-#innerContainerR div h2 {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-#innerContainerR div p {
-  font-size: 18px;
-  margin-top: 20px;
-  font-family: "NeueHaasDisplay-Roman" !important;
+#innerContainerR div h2{
+      font-size: 28px;
+    font-weight: 700;
 }
 
-#imageDisplay img {
-  display: block;
-  height: 245px;
-  margin: 45px auto 0;
-  -o-object-fit: contain;
-  object-fit: contain;
-  width: 245px;
+#innerContainerR div p{
+    font-size: 18px;
+    margin-top: 20px;
+    font-family: "NeueHaasDisplay-Roman" !important;
 }
+
+#imageDisplay img{
+ display: block;
+    height: 245px;
+    margin: 45px auto 0;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 245px;
+  
+}
+
+
+
+

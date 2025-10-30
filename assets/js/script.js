@@ -307,6 +307,13 @@ let index=1;
 
 setTimeout(()=>{
 loopInterval=setInterval(()=>{
+
+  let afterLoad= document.querySelector('.progressBar');
+  console.log(afterLoad)
+  // afterLoad.className.remove('progressBar')
+  afterLoad.className='progressBarAfter';
+
+
   updateRightSide(dynamicArrO[index]);
   index++;
   if(index===dynamicArrO.length){

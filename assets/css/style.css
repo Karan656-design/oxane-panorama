@@ -151,14 +151,14 @@ body {
   font-family: NeueHaasDisplay-Medium, sans-serif !important;
 }
 
-/* <!-- ----------------------------------------------------- Hero Section ----------------------------------------------------- --> */
+/* <!-- ----------------------------------------------------- Navbar Section ----------------------------------------------------- --> */
 #navbar {
   position: fixed;
   top: 0;
   left: 0;
   background: transparent;
   width: 100%;
-  padding: 30px;
+  height: 85px !important;
   z-index: 9999;
   transition: all 0.5s ease;
 }
@@ -168,11 +168,12 @@ body {
 }
 
 .cntct-btn button {
+  font-size: 15px;
   background-color: #ffffff26;
   color: white;
   border-radius: 24px;
   border: 1px solid var(--text-teal-green);
-  padding: 13px 20px;
+  padding: 10px 20px;
 }
 
 .cntct-btn button:hover {
@@ -194,6 +195,13 @@ body {
 
 #navbar.navbar-scrolled {
   background: white;
+}
+
+@media (max-width: 576px) {
+  .cntct-btn button {
+  font-size: 12px;
+  padding: 7px 18px;
+  }
 }
 
 /* <!-- ----------------------------------------------------- Hero Section ----------------------------------------------------- --> */
@@ -558,7 +566,29 @@ p.hero-subtext {
 }
 
 @media (max-width: 576px) {
-  
+  #animation-container .container {
+    padding: 0 20px !important;
+  }
+  #animation-container p {
+    font-size: 16px !important;
+    line-height: 25px !important;
+  }
+  #animation-container h2 {
+    font-size: 28px !important;
+    line-height: 35px !important;
+  }
+  .detailsWrapper {
+    width: 100%;
+  }
+  .details {
+    justify-content: start;
+    gap: 0 !important;
+    margin: 65px 0 0 !important;
+    min-height: fit-content !important;
+  }
+  .details:last-child {
+    margin-bottom: 65px !important;
+  }
 }
 
 /* <!-- ----------------------------------------------------- Built Section ----------------------------------------------------- --> */
@@ -612,6 +642,42 @@ p.hero-subtext {
   font-weight: 600;
   line-height: 27px;
   text-align: left;
+}
+
+@media (max-width: 576px) {
+  .built-for-sec {
+    padding: 50px 10px !important;
+  }
+  .built-for-sec .container {
+    padding: 0 20px !important;
+  }
+  .built-for-sec .row {
+    row-gap: 20px !important;
+  }
+  .built-for-sec h6 {
+    font-size: 28px !important;
+    line-height: 35px !important;
+    white-space: normal !important;
+  }
+  .built-for-sec .flexi-points {
+    display: grid !important;
+    gap: 10px !important;
+    align-items: unset !important;
+    justify-content: flex-start !important;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    margin-bottom: 20px !important;
+  }
+  .built-for-sec .flexi-points .point-div {
+    min-width: 150px;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: fit-content !important;
+    padding-top: 15px;
+  }
+  .built-for-sec .flexi-points img {
+    height: 50px !important;
+    width: 50px !important;
+  }
 }
 
 /* <!-- ----------------------------------------------------- Awards Section ----------------------------------------------------- --> */
@@ -675,6 +741,33 @@ p.hero-subtext {
   width: 100%;
 }
 
+@media (max-width: 576px) {
+  .awards-sec-hero .container {
+    padding: 0 !important;
+  }
+  .awards-sec-hero .container .awards {
+    width: 100% !important;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    column-gap: 15px !important;
+    justify-content: center !important;
+  }
+  .awards-sec-hero .container .awards .awards__box.dark {
+    height: auto !important;
+    padding: 10px 12px !important;
+    width: unset !important;
+    gap: 10px;
+  }
+  .awards-sec-hero .container .awards .awards__box.dark .label,
+  .awards-sec-hero .container .awards .awards__box.dark .label__v2 {
+    font-size: 12px !important;
+  }
+  .awards-sec-hero .container .awards .awards__box.dark figure {
+    height: 45px !important;
+  }
+}
+
 /* <!-- ----------------------------------------------------- Auto Load Section ----------------------------------------------------- --> */
 .client-stories {
   padding: 40px 0 !important;
@@ -726,6 +819,24 @@ p.hero-subtext {
   margin-bottom: 0;
   font-style: normal;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .client-stories .container {
+    padding: 0 20px !important;
+  }
+  .trusted-sec {
+    padding: 40px 20px !important;
+  }
+  .trusted-sec h2 {
+    font-size: 24px !important;
+    line-height: 35px !important;
+  }
+  .trusted-sec .numbers-sec .number-div h2 {
+    font-size: 30px !important;
+    line-height: 40px !important;
+    margin-bottom: 8px !important;
+  }
 }
 
 /* <!-- ----------------------------------------------------- Form Section ----------------------------------------------------- --> */
@@ -953,50 +1064,47 @@ input[type="file"] {
 
 /* <!-- ----------------------------------------------------- Auto Load Section ----------------------------------------------------- --> */
 
-.autoLoadSec{
+.autoLoadSec {
   padding-bottom: 70px;
-  background-color:#f6fbfa ;
+  background-color: #f6fbfa;
 }
 
-#innerContainerL{
-      background-color:var(--bg-indigo) ;
-        border-radius: 10px 0 0 10px;
-    height: 670px;
-    margin: 0 auto;
-    min-height: 670px;
-    padding: 60px 70px;
-    width: 100%;
-    margin: 0 auto;
- 
+#innerContainerL {
+  background-color: var(--bg-indigo);
+  border-radius: 10px 0 0 10px;
+  height: 670px;
+  margin: 0 auto;
+  min-height: 670px;
+  padding: 60px 70px;
+  width: 100%;
+  margin: 0 auto;
 }
 
+.dynamicContent {
+  /* border-top: 2px solid ; */
+  /* border-radius: 2px; */
+  color: #f0f0f0;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem 0;
+  line-height: 26px;
+  cursor: pointer;
 
- .dynamicContent{
-     /* border-top: 2px solid ; */
-    /* border-radius: 2px; */
-    color: #f0f0f0;
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    padding: 1rem 0;
-     line-height: 26px;
-     cursor: pointer;
-       
-       /* transition-property: all;
+  /* transition-property: all;
        transition-duration: 7s;
        transition-timing-function: linear; */
 }
 
+.progressBar {
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  height: 2px;
+  margin-bottom: 0.5rem;
+  max-height: 2px;
+  width: 100%;
 
- .progressBar{
-background-color: #f0f0f0;
-    border-radius: 2px;
-    height: 2px;
-    margin-bottom: .5rem;
-    max-height: 2px;
-    width: 100%;
-  
-    /* transition-property: all;
+  /* transition-property: all;
   transition-duration: 7s;
     transition-timing-function: linear; */
 }
@@ -1010,57 +1118,52 @@ background-color: #f0f0f0;
   }
 }
 
-
-
-
-.progressBarAfter{
+.progressBarAfter {
   /* background-color: #9dd08d; */
-    border-radius: 2px;
-    height: 2px;
-    margin-bottom: .5rem;
-    max-height: 2px;
-    /* width: 100%; */
-      background: linear-gradient(to right, #ffcc00, #f0f0f0); /* Customize colors */
+  border-radius: 2px;
+  height: 2px;
+  margin-bottom: 0.5rem;
+  max-height: 2px;
+  /* width: 100%; */
+  background: linear-gradient(
+    to right,
+    #ffcc00,
+    #f0f0f0
+  ); /* Customize colors */
   background-size: 200% 100%;
   /* background-repeat: no-repeat; */
   animation: leftToRightFade 7s linear forwards; /* Match interval duration */
-
 }
 
-#innerContainerR{
+#innerContainerR {
   align-items: center;
-    background-color: #fff;
-    border-radius: 0 10px 10px 0;
-    color: #333;
-    display: flex;
-    height: 670px;
-    justify-content: center;
-    margin: 0;
-    min-height: 670px;
-    padding: 60px 70px;
-    width: 100%;
+  background-color: #fff;
+  border-radius: 0 10px 10px 0;
+  color: #333;
+  display: flex;
+  height: 670px;
+  justify-content: center;
+  margin: 0;
+  min-height: 670px;
+  padding: 60px 70px;
+  width: 100%;
 }
-#innerContainerR div h2{
-      font-size: 28px;
-    font-weight: 700;
-}
-
-#innerContainerR div p{
-    font-size: 18px;
-    margin-top: 20px;
-    font-family: "NeueHaasDisplay-Roman" !important;
+#innerContainerR div h2 {
+  font-size: 28px;
+  font-weight: 700;
 }
 
-#imageDisplay img{
- display: block;
-    height: 245px;
-    margin: 45px auto 0;
-    -o-object-fit: contain;
-    object-fit: contain;
-    width: 245px;
-  
+#innerContainerR div p {
+  font-size: 18px;
+  margin-top: 20px;
+  font-family: "NeueHaasDisplay-Roman" !important;
 }
 
-
-
-
+#imageDisplay img {
+  display: block;
+  height: 245px;
+  margin: 45px auto 0;
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 245px;
+}

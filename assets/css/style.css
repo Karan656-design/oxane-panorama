@@ -199,8 +199,8 @@ body {
 
 @media (max-width: 576px) {
   .cntct-btn button {
-  font-size: 12px;
-  padding: 7px 18px;
+    font-size: 12px;
+    padding: 7px 18px;
   }
 }
 
@@ -1064,56 +1064,53 @@ input[type="file"] {
 
 /* <!-- ----------------------------------------------------- Auto Load Section ----------------------------------------------------- --> */
 
-.autoLoadSec{
+.autoLoadSec {
   padding-bottom: 70px;
-  background-color:#f6fbfa ;
+  background-color: #f6fbfa;
 }
 
-#innerContainerL{
-      background-color:var(--bg-indigo) ;
-        border-radius: 10px 0 0 10px;
-    height: 670px;
-    margin: 0 auto;
-    min-height: 670px;
-    padding: 60px 70px;
-    width: 100%;
-    margin: 0 auto;
- 
+#innerContainerL {
+  background-color: var(--bg-indigo);
+  border-radius: 10px 0 0 10px;
+  height: 670px;
+  margin: 0 auto;
+  min-height: 670px;
+  padding: 60px 70px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-
-#innerContainerR{
+#innerContainerR {
   align-items: center;
-    background-color: #fff;
-    border-radius: 0 10px 10px 0;
-    color: #333;
-    display: flex;
-    height: 670px;
-    justify-content: center;
-    margin: 0;
-    min-height: 670px;
-    padding: 60px 70px;
-    width: 100%;
+  background-color: #fff;
+  border-radius: 0 10px 10px 0;
+  color: #333;
+  display: flex;
+  height: 670px;
+  justify-content: center;
+  margin: 0;
+  min-height: 670px;
+  padding: 60px 70px;
+  width: 100%;
 }
-#innerContainerR div h2{
-      font-size: 28px;
-    font-weight: 700;
-}
-
-#innerContainerR div p{
-    font-size: 18px;
-    margin-top: 20px;
-    font-family: "NeueHaasDisplay-Roman" !important;
+#innerContainerR div h2 {
+  font-size: 28px;
+  font-weight: 700;
 }
 
-#imageDisplay img{
- display: block;
-    height: 245px;
-    margin: 45px auto 0;
-    -o-object-fit: contain;
-    object-fit: contain;
-    width: 245px;
-  
+#innerContainerR div p {
+  font-size: 18px;
+  margin-top: 20px;
+  font-family: "NeueHaasDisplay-Roman" !important;
+}
+
+#imageDisplay img {
+  display: block;
+  height: 245px;
+  margin: 45px auto 0;
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 245px;
 }
 
 .section {
@@ -1133,12 +1130,11 @@ input[type="file"] {
   font-style: normal;
   font-weight: 700;
 }
- 
 
 .progress-bar {
   height: 100%;
   /* min-height: 3px; */
-  background-color: #8EFECC;
+  background-color: #8efecc;
   transition: width 0.2s ease-in-out;
 }
 
@@ -1159,7 +1155,7 @@ input[type="file"] {
   transition: color 0.3s ease;
 }
 .section-title.active {
-  color: #8EFECC;
+  color: #8efecc;
 }
 .dynamic-info-section {
   background-color: white;

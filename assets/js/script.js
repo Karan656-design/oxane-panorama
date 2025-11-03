@@ -196,135 +196,136 @@ document.addEventListener("DOMContentLoaded", function () {
 // const img = document.createElement("img");
 const dynamicArrO = [
   {
-    h2: "Everything in one place",
-    description:
-      "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
-    link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/1.svg",
-      text: "Everything in one place",
-    },
-    
+    title: "Everything in one place",
+    description: "Manage all your assets and liabilities across the investment lifecycle on one platform. Centralize all data management and investment management processes.",
+    image: "/assets/images/Product/oxane-panorama/illustrations/1.svg",
+    progress: 0,
+    started: false,
+    inView: true
   },
   {
-    h2: "Unlock scalability and control",
-    description:
-      "Accelerate your growth with confidence on an operational infrastructure that scales seamlessly with your portfolio while maintaining rigorous risk controls",
-    link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/2.svg",
-      text: "Unlock scalability and control",
-    },
+    title: "Unlock scalability and control",
+    description: "Accelerate your growth with confidence on an operational infrastructure that scales seamlessly with your portfolio while maintaining rigorous risk controls",
+    image: "/assets/images/Product/oxane-panorama/illustrations/2.svg",
+    progress: 0,
+    started: false,
+    inView: true
   },
   {
-    h2: "Proactively manage risk",
-    description:
-      "Get complete visibility on relevant risk metrics at portfolio and transaction levels. Identify risk early so you can address it proactively.",
-    link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/4.svg",
-      text: "Proactively manage risk",
-    },
+    title: "Proactively manage risk",
+    description: "Get complete visibility on relevant risk metrics at portfolio and transaction levels. Identify risk early so you can address it proactively.",
+    image: "/assets/images/Product/oxane-panorama/illustrations/4.svg",
+    progress: 0,
+    started: false,
+    inView: true
   },
   {
-    h2: "Improve rigor and transparency",
-    description:
-      "Improve efficiency, rigor, and transparency across all processes with a digital-first approach to valuations, servicing, and pipeline management.",
-    link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/5.svg",
-      text: "Improve rigor and transparency",
-    },
+    title: "Improve rigor and transparency",
+    description: "Improve efficiency, rigor, and transparency across all processes with a digital-first approach to valuations, servicing, and pipeline management.",
+    image: "/assets/images/Product/oxane-panorama/illustrations/5.svg",
+    progress: 0,
+    started: false,
+    inView: true
   },
   {
-    h2: "Minimize operational risk",
-    description:
-      "Replace disconnected systems and manual workflows with centralized data, reporting, and monitoring. Oxane Panorama provides a single source of truth, minimizing operational risk for all private credit strategies.",
-    link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/6.svg",
-      text: "Minimize operational risk",
-    },
+    title: "Minimize operational risk",
+    description: "Replace disconnected systems and manual workflows with centralized data, reporting, and monitoring. Oxane Panorama provides a single source of truth, minimizing operational risk for all private credit strategies.",
+    image: "/assets/images/Product/oxane-panorama/illustrations/6.svg",
+    progress: 0,
+    started: false,
+    inView: true
   },
   {
-    h2: "Empower your team",
-    description:
-      "Simplify, digitalize, and transform investment management processes so your team can focus on driving investment outcomes.",
-    link: {
-      href: "/assets/images/Product/oxane-panorama/illustrations/7.svg",
-      text: "Empower your team",
-    },
-  },
+    title: "Empower your team",
+    description: "Simplify, digitalize, and transform investment management processes so your team can focus on driving investment outcomes.",
+    image: "/assets/images/Product/oxane-panorama/illustrations/7.svg",
+    progress: 0,
+    started: false,
+    inView: true
+  }
 ];
 
 const dynamicData = document.getElementById("leftContent2");
-const dynamicDisplay = document.getElementById("innerContainerR");
+let activeIndex = 0;
 
-let loopInterval=null;
-let loopActive=true;
-
-
-function updateRightSide(item){
-
-  // heading display
-    const headingDynamic = document.querySelector(".dynamicHeading");
-    headingDynamic.textContent = item.h2;
-  
-  // paragraph display
-    const paraDynamic = document.querySelector(".description");
-    paraDynamic.textContent = item.description;
-
-  //image display
-    const imageDisplay = document.getElementById("imageDisplay");
-    imageDisplay.innerHTML = `<img src="${item.link.href}" alt="${item.h2}" style="max-width:100%; height:auto;">`;
+function updateDynamicInfo(index) {
+  const item = dynamicArrO[index];
+  document.querySelector(".dynamicHeading").textContent = item.title;
+  document.querySelector(".description").textContent = item.description;
+  document.getElementById("imageDisplay").innerHTML = `<img src="${item.image}" alt="${item.title}" class="dynamic-rgt-img">`;
 }
 
+function handleSectionClick(index) {
+  dynamicArrO.forEach((section, i) => {
+    section.progress = i === index ? 100 : 0;
+    section.started = false;
 
-function dynamicLoad(){
+    const progressBar = document.querySelectorAll(".progress-bar")[i];
+    const titleSpan = document.querySelectorAll(".section-title")[i];
 
-dynamicArrO.forEach((item) => {
-  //<------------ left side conetent ---------------->
-const progressDiv = document.createElement("div");
-  progressDiv.className = "progressBar";
-  dynamicData.appendChild(progressDiv);
-
-  const contentDiv = document.createElement("div");
-  contentDiv.className = "dynamicContent";
-  contentDiv.textContent = item.h2;
-  dynamicData.appendChild(contentDiv);
-
-  //<------------ right side display ---------------->
-  contentDiv.addEventListener("click", () => {
-
-    // stops auto loop immediatly if active
-    if(loopActive){
-      clearInterval(loopInterval);
-      loopActive=false;
-    }
-    updateRightSide(item)
+    progressBar.style.width = section.progress + "%";
+    titleSpan.style.color = section.progress === 100 ? "#8EFECC" : "#e7f8f4";
   });
-});
 
-// default diaplay
-updateRightSide(dynamicArrO[0]); 
-
-let index=1;
-
-setTimeout(()=>{
-loopInterval=setInterval(()=>{
-
-  let afterLoad= document.querySelector('.progressBar');
-  console.log(afterLoad)
-  // afterLoad.className.remove('progressBar')
-  afterLoad.className='progressBarAfter';
-
-
-  updateRightSide(dynamicArrO[index]);
-  index++;
-  if(index===dynamicArrO.length){
-    clearInterval(interval);
-    loopActive=false;
-  }
-},6000)
-},1000);
+  activeIndex = index;
+  updateDynamicInfo(index);
 }
-window.addEventListener("load",dynamicLoad)
 
-// dynamicLoad();
+function autoFillProgress(index) {
+  if (index >= dynamicArrO.length) return;
 
+  const section = dynamicArrO[index];
+  if (section.started || !section.inView) return;
 
+  section.started = true;
+  updateDynamicInfo(index);
+
+  const progressBar = document.querySelectorAll(".progress-bar")[index];
+  const titleSpan = document.querySelectorAll(".section-title")[index];
+
+  const interval = setInterval(() => {
+    if (section.progress < 100) {
+      section.progress += 1;
+      progressBar.style.width = section.progress + "%";
+    } else {
+      clearInterval(interval);
+      titleSpan.style.color = "#8EFECC";
+      autoFillProgress(index + 1);
+    }
+  }, 50);
+}
+
+function dynamicLoad() {
+  dynamicArrO.forEach((item, index) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "section";
+    wrapper.dataset.index = index;
+
+    const progressBarWrapper = document.createElement("div");
+    progressBarWrapper.className = "progress-bar-wrapper";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar";
+    progressBar.style.width = item.progress + "%";
+    progressBarWrapper.appendChild(progressBar);
+
+    const sectionHeader = document.createElement("div");
+    sectionHeader.className = "section-header";
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "section-title";
+    titleSpan.textContent = item.title;
+    titleSpan.style.color = item.progress === 100 ? "#8EFECC" : "#e7f8f4";
+    sectionHeader.appendChild(titleSpan);
+
+    wrapper.appendChild(progressBarWrapper);
+    wrapper.appendChild(sectionHeader);
+    dynamicData.appendChild(wrapper);
+
+   
+    wrapper.addEventListener("click", () => handleSectionClick(index));
+  });
+
+  updateDynamicInfo(0);
+  setTimeout(() => autoFillProgress(0), 1000);
+}
+
+window.addEventListener("load", dynamicLoad);

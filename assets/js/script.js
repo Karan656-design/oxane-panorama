@@ -4,7 +4,7 @@ const navbarElement = document.getElementById("navbar");
 window.addEventListener("scroll", function () {
   const logoImg = navbarElement.querySelector(".logo img");
   const cntctBtn = navbarElement.querySelector(".cntct-btn button");
-  if (window.scrollY > 100) {
+  if (window.scrollY > 50) {
     navbarElement.classList.add("navbar-scrolled");
     if (logoImg) logoImg.style.filter = "none";
     if (cntctBtn) {
@@ -36,7 +36,6 @@ const detailsData = [
     p: "Comprehensive data management, risk monitoring, reporting, and analytics to streamline portfolio management for all private credit investments on one single solution.",
     link: {
       href: "/private-credit-software/oxane-panorama/portfolio-management",
-      text: "Learn more",
     },
   },
   {
@@ -46,7 +45,6 @@ const detailsData = [
     p: "Comprehensive capabilities for capital markets, finance, and treasury teams to digitally manage all aspects of leverage and fund finance—bringing both borrowers and lenders onto one private credit technology platform.",
     link: {
       href: "/private-credit-software/oxane-panorama/leverage-facility-management",
-      text: "Learn more",
     },
   },
   {
@@ -56,7 +54,6 @@ const detailsData = [
     p: "Ingest, consolidate, and validate unstructured data at scale. Break data silos, connect upstream and downstream, and build a single source of truth for all your teams.",
     link: {
       href: "/private-credit-software/oxane-panorama/enterprise-data-management",
-      text: "Learn more",
     },
   },
   {
@@ -66,7 +63,6 @@ const detailsData = [
     p: "Digital-first servicing and agency support including facility agent, security agent, verification agent, master servicing, and backup servicing.",
     link: {
       href: "/private-credit-software/oxane-panorama/servicing",
-      text: "Learn more",
     },
   },
   {
@@ -76,7 +72,6 @@ const detailsData = [
     p: "Add rigor and transparency to valuations of corporate loans, granular loan portfolios, risk transfer trades, and other illiquid or hard-to-value assets.",
     link: {
       href: "/private-credit-software/oxane-panorama/valuations",
-      text: "Learn more",
     },
   },
   {
@@ -86,7 +81,6 @@ const detailsData = [
     p: "Stay on top of your deal flow, get clear visibility into your pipeline, and centrally monitor and track progress on all your private credit deals.",
     link: {
       href: "/private-credit-software/oxane-panorama/pipeline-management",
-      text: "Learn more",
     },
   },
   {
@@ -96,7 +90,6 @@ const detailsData = [
     p: "Leverage AI-powered capabilities and unlock greater productivity, higher accuracy, and deeper insights across private credit portfolios.",
     link: {
       href: "/private-credit-software/oxane-panorama/AI",
-      text: "Learn more",
     },
   },
 ];
@@ -111,7 +104,7 @@ function createDetailsHTML(item) {
                                   item.link
                                     ? `
                                     <div class="btn-group">
-                                        <a href="${item.link.href}" target="_blank" class="button button__blue">${item.link.text}</a>
+                                        <a href="${item.link.href}" target="_blank" class="button button__blue">Learn more</a>
                                     </div>
                                 `
                                     : ""

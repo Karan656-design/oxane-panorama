@@ -240,6 +240,8 @@ const dynamicArrO = [
 
 const dynamicData = document.getElementById("leftContent2");
 let activeIndex = 0;
+let autoProgressInterval = null;
+
 
 function updateDynamicInfo(index) {
   const item = dynamicArrO[index];
@@ -249,6 +251,12 @@ function updateDynamicInfo(index) {
 }
 
 function handleSectionClick(index) {
+   if (autoProgressInterval) {
+    clearInterval(autoProgressInterval);
+    autoProgressInterval = null;
+  }
+
+
   dynamicArrO.forEach((section, i) => {
     section.progress = i === index ? 100 : 0;
     section.started = false;
@@ -276,17 +284,19 @@ function autoFillProgress(index) {
   const progressBar = document.querySelectorAll(".progress-bar")[index];
   const titleSpan = document.querySelectorAll(".section-title")[index];
 
-  const interval = setInterval(() => {
+  autoProgressInterval = setInterval(() => {
     if (section.progress < 100) {
       section.progress += 1;
       progressBar.style.width = section.progress + "%";
     } else {
-      clearInterval(interval);
+      clearInterval(autoProgressInterval);
+      autoProgressInterval = null;
       titleSpan.style.color = "#8EFECC";
       autoFillProgress(index + 1);
     }
   }, 50);
 }
+
 
 function dynamicLoad() {
   dynamicArrO.forEach((item, index) => {

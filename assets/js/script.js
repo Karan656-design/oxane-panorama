@@ -129,37 +129,28 @@ document.addEventListener("DOMContentLoaded", function () {
       const photos = gsap.utils.toArray(".photo");
       const detailsArr = gsap.utils.toArray(".details");
 
-      // Create ScrollTrigger
+      // Create ScrollTrigger: start when .gallery hits the top of the viewport
       ScrollTrigger.create({
         trigger: ".gallery",
-        start: "top top",
+        start: "top top",        // when the top of .gallery hits the top of the viewport
         end: "bottom bottom",
         pin: ".right",
+        pinSpacing: false,
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
-          console.log("Scroll Progress:", progress);
 
-          // Calculate index, but clamp to last index at the end
+          // Calculate index, clamp to last index at the end
           const totalItems = photos.length;
-          console.log("Total Items:", totalItems);
-
           let currentIndex = Math.floor(progress * totalItems);
-          console.log("Calculated Index:", currentIndex);
 
           if (currentIndex === totalItems || progress === 1) {
             currentIndex = totalItems - 1;
-            // Set .right height to fit-content at the end
             const rightDiv = document.querySelector(".right");
-            if (rightDiv) {
-              rightDiv.style.height = "fit-content";
-            }
+            if (rightDiv) rightDiv.style.height = "fit-content";
           } else {
-            // Reset .right height to 100% during scroll
             const rightDiv = document.querySelector(".right");
-            if (rightDiv) {
-              rightDiv.style.height = "6605px";
-            }
+            if (rightDiv) rightDiv.style.height = "100%";
           }
 
           // Synchronize Photos
@@ -180,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         },
       });
+
+      // In case layout changed during/after DOM updates
+      ScrollTrigger.refresh();
     }, 5);
   }
 });
@@ -330,5 +324,6 @@ function dynamicLoad() {
   updateDynamicInfo(0);
   setTimeout(() => autoFillProgress(0), 1000);
 }
+dynamicLoad()
 
-window.addEventListener("load", dynamicLoad);
+// window.addEventListener("load", dynamicLoad);
